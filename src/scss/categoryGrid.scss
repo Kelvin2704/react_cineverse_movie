@@ -1,0 +1,16 @@
+@use "./index" as *;
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}

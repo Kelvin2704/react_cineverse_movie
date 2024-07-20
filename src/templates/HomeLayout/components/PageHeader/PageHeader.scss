@@ -1,0 +1,10 @@
+@use "../../../../scss/variables";
+.page-header {
+  padding: 6rem 0 2rem;
+  text-align: center;
+  position: relative;
+  h2 {
+    position: relative;
+    z-index: 99;
+  }
+}

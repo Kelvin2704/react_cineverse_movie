@@ -1,0 +1,179 @@
+@use "../../scss" as *;
+.detail-page {
+  .detail-header {
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    @include mobile {
+      height: 40vh;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1)
+      );
+      grid-column: 1 / -1;
+    }
+    .detail-grid {
+      display: grid;
+      height: inherit;
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      align-items: end;
+      gap: 4rem;
+      padding-bottom: 50px;
+      @include mobile {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      .detail-header-content,
+      .detail-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        z-index: 2;
+        align-self: end;
+      }
+      .detail-header-content {
+        .detail-title {
+          font-size: 4rem;
+          margin-bottom: 10px;
+        }
+        .detail-info {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          span {
+            margin-right: 20px;
+            font-size: 1.1rem;
+          }
+          .rating {
+            display: flex;
+            align-items: center;
+            i {
+              margin-left: 5px;
+              color: gold;
+            }
+          }
+          .genres,
+          .release-year {
+            opacity: 0.5;
+            font-size: 1rem;
+          }
+        }
+        .detail-overview {
+          opacity: 0.5;
+          font-size: 1.2rem;
+          margin-bottom: 20px;
+        }
+        .detail-actions {
+          button {
+            margin-right: 30px;
+            padding: 20px 60px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            &.play-button {
+              background-color: $main-color;
+              color: white;
+            }
+            &.trailer-button {
+              background-color: rgba(128, 128, 128, 0.3);
+              color: white;
+            }
+          }
+        }
+        @include mobile {
+          padding-top: 50px;
+          .detail-title {
+            font-size: 3rem;
+          }
+          .detail-overview {
+            font-size: 1rem;
+          }
+          .detail-actions {
+            button {
+              padding: 15px 30px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      .detail-content {
+        @include mobile {
+          .posters {
+            display: none;
+          }
+        }
+        .posters {
+          margin-bottom: 20px;
+          h2 {
+            margin-bottom: 10px;
+          }
+          .posters-list {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            img {
+              width: 150px;
+              height: 100%;
+              border-radius: 5px;
+            }
+          }
+        }
+        .cast-crew {
+          h2 {
+            margin-bottom: 10px;
+          }
+          .cast-list {
+            display: flex;
+            align-items: start;
+            gap: 5px;
+            .cast-member {
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-bottom: 5px;
+                object-fit: cover;
+                @include mobile {
+                  width: 40px;
+                  height: 40px;
+                }
+              }
+              p {
+                font-size: 0.8rem;
+                width: 60px;
+              }
+            }
+            .view-all-button {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              font-size: 12px;
+              background-color: rgba(128, 128, 128, 0.5);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.related-items {
+  margin-top: 40px;
+}

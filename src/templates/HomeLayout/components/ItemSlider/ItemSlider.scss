@@ -1,0 +1,52 @@
+@use "../../../../scss" as *;
+.item-slider {
+  padding-top: 4rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .vertical-slider {
+    height: 100%;
+    width: 100%;
+    .swiper-pagination {
+      display: none;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .swiper {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+
+      .swiper-slide {
+        overflow: hidden;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #fff;
+        height: 100%;
+        width: 50px;
+        top: 0;
+        transition: background 0.3s;
+
+        &.swiper-button-disabled {
+          opacity: 0.2;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+          font-size: 2rem !important;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

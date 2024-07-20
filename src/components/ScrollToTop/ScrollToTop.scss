@@ -1,0 +1,29 @@
+@use "../../scss/" as *;
+.scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+  
+    button {
+      background-color: $main-color;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      img {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+  
+      &:hover {
+        // background-color: #d62828;
+        transform: scale(1.1);
+
+      }
+    }
+  }
+  

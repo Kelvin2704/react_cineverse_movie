@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail/Detail";
+import Catalog from "./pages/Catalog";
+import HomeLayout from "./templates/HomeLayout/HomeLayout";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import SearchPage from "./pages/SearchPage/SearchPage";
+// import { createBrowserHistory } from "history";
 
 function App() {
+  // const history = createBrowserHistory();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<HomeLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/:category" element={<Catalog />} />
+          <Route path="/:category/:id" element={<Detail />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search/:type" element={<SearchPage />} />
+        </Route>
+      </Routes>
+      <ScrollToTop />
+
+    </BrowserRouter>
   );
 }
 
